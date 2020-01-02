@@ -12,18 +12,18 @@ const schema = require('./schema/schema');
 const app = express();
 
 // Replace with your mongoLab URI
-const MONGO_URI = '';
-
+const MONGO_URI = 'mongodb://whwang:9gsHTBOqf2H6uz16@cluster0-shard-00-00-yydfr.mongodb.net:27017,cluster0-shard-00-01-yydfr.mongodb.net:27017,cluster0-shard-00-02-yydfr.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority';
+//9gsHTBOqf2H6uz16
 // Mongoose's built in promise library is deprecated, replace it with ES2015 Promise
 mongoose.Promise = global.Promise;
 
 // Connect to the mongoDB instance and log a message
 // on success or failure
-mongoose.connect(MONGO_URI);
+mongoose.connect(MONGO_URI, {useNewUrlParser: true});
 mongoose.connection
     .once('open', () => console.log('Connected to MongoLab instance.'))
-    .on('error', error => console.log('Error connecting to MongoLab:', error));
-
+    .on('error', error => console.log('FUCK:', error));
+//Zwi2l3ZTMaC6ve5j
 // Configures express to use sessions.  This places an encrypted identifier
 // on the users cookie.  When a user makes a request, this middleware examines
 // the cookie and modifies the request object to indicate which user made the request
